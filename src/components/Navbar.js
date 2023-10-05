@@ -34,7 +34,7 @@ function Navbar({ title }) {
         style={myStyle}
       >
         <div className='container-fluid '>
-          <Link to='/' className='navbar-brand'>
+          <Link to='' className='navbar-brand'>
             {title}
           </Link>
           <button
@@ -56,7 +56,7 @@ function Navbar({ title }) {
                 </Link>
               </li>
               <li className='nav-item'>
-                <Link to='/About' className='nav-link'>
+                <Link to='about' className='nav-link'>
                   About
                 </Link>
               </li>
