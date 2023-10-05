@@ -1,31 +1,25 @@
-import './App.css';
-import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import About from './components/About';
+
 import {
-  BrowserRouter as Router,
-  Switch,
+  createBrowserRouter,
+  RouterProvider,
+  createRoutesFromElements,
   Route,
-  Link
-} from "react-router-dom";
+} from 'react-router-dom';
+import Layout from './components/Layout';
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route element={<Layout />}>
+      <Route index path='/' element={<TextForm />} />
+      <Route path='/about' element={<About />} />
+    </Route>
+  )
+);
 
 function App() {
-  return (
-    <Router>
-      <div className="bg"></div>
-      <div className="container">
-        <Navbar title="TextUtils" />
-        <Switch>
-          <Route path="/About">
-            <About />
-          </Route>
-          <Route  path="/">
-            <TextForm heading="Enter your text here!" />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
